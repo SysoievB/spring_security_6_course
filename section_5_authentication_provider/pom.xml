@@ -12,7 +12,7 @@
     <artifactId>section_5_authentication_provider</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>section_6_authentication_provider</name>
-    <description>section_6_authentication_provider</description>
+    <description>section_5_authentication_provider</description>
     <properties>
         <java.version>21</java.version>
     </properties>
