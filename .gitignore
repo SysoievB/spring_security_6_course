@@ -1,0 +1,17 @@
+/.idea/.gitignore
+/section_1_static_credentials/.gitignore
+/section_6_cors_csrf/.gitignore
+/.idea/compiler.xml
+/.idea/dataSources.xml
+/.idea/encodings.xml
+/.idea/jarRepositories.xml
+/.mvn/wrapper/maven-wrapper.properties
+/section_1_static_credentials/.mvn/wrapper/maven-wrapper.properties
+/section_6_cors_csrf/.mvn/wrapper/maven-wrapper.properties
+/.idea/misc.xml
+/section_1_static_credentials/mvnw
+/section_6_cors_csrf/mvnw
+/section_1_static_credentials/mvnw.cmd
+/section_6_cors_csrf/mvnw.cmd
+/.idea/uiDesigner.xml
+/.idea/vcs.xml
