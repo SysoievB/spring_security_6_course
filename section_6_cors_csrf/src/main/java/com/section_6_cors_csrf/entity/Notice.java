@@ -9,22 +9,22 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@Entity
+import java.util.Date;
+
 @Getter
-@AllArgsConstructor
 @NoArgsConstructor
-@Table
-public class Customer {
+@AllArgsConstructor
+@Entity
+@Table(name = "notice_details")
+public class Notice {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    private String email;
-    private String pwd;
-    private String role;
-
-    public Customer setEncodedPassword(String encodedPassword) {
-        this.pwd = encodedPassword;
-        return this;
-    }
+    private int noticeId;
+    private String noticeSummary;
+    private String noticeDetails;
+    private Date noticBegDt;
+    private Date noticEndDt;
+    private Date createDt;
+    private Date updateDt;
 }

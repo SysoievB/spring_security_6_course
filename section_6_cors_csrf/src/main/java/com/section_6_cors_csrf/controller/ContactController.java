@@ -1,13 +1,25 @@
 package com.section_6_cors_csrf.controller;
 
+import com.section_6_cors_csrf.entity.Contact;
+import com.section_6_cors_csrf.repo.ContactRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
-public class ContactController {
+import java.util.Date;
+import java.util.Random;
 
-    @GetMapping("/contact")
-    public String saveContactInquiryDetails() {
-        return "Inquiry details are saved to the DB";
+@RestController
+@AllArgsConstructor
+public class ContactController {
+    private final ContactRepository contactRepository;
+
+    @PostMapping("/contact")
+    public Contact saveContactInquiryDetails(@RequestBody Contact contact) {
+        contact.setContactId("SR" + new Random().nextInt(999999999 - 9999) + 9999);
+        contact.setCreateDt(new Date(System.currentTimeMillis()));
+        return contactRepository.save(contact);
     }
 }

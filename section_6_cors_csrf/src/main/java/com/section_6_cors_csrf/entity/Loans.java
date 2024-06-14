@@ -9,22 +9,23 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @Entity
+@Table(name = "loans")
 @Getter
-@AllArgsConstructor
 @NoArgsConstructor
-@Table
-public class Customer {
+@AllArgsConstructor
+public class Loans {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    private String email;
-    private String pwd;
-    private String role;
-
-    public Customer setEncodedPassword(String encodedPassword) {
-        this.pwd = encodedPassword;
-        return this;
-    }
+    private int loanNumber;
+    private int customerId;
+    private Date startDt;
+    private String loanType;
+    private int totalLoan;
+    private int amountPaid;
+    private int outstandingAmount;
+    private String createDt;
 }
