@@ -6,7 +6,6 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,13 +17,10 @@ import java.util.Optional;
 @AllArgsConstructor
 public class LoginController {
     private final CustomerJpaRepository repository;
-    private final PasswordEncoder encoder;
 
     @PostMapping("/register")
     public ResponseEntity<String> registerUser(@RequestBody Customer customer) {
-        return Optional.of(encoder.encode(customer.getPwd()))
-                .map(customer::setEncodedPassword)
-                .map(repository::save)
+        return Optional.of(repository.save(customer))
                 .filter(savedCustomer -> savedCustomer.getId() > 0)
                 .map(savedCustomer -> ResponseEntity
                         .status(HttpStatus.CREATED)
